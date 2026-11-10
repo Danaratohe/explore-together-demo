@@ -391,8 +391,8 @@ const ENGLISH = {
   "El perfil de mamá abre el módulo para padres. Los perfiles infantiles adaptan el lenguaje según la edad elegida.": "The Mom profile opens parent mode. Child profiles adapt the language to the selected age.",
   "Seleccionado": "Selected", "Elegir": "Choose", "Listo": "Done",
   "Avatares aprobados": "Approved avatars",
-  "Adult guide, Child guide A y Child guide B aparecen como ilustraciones estáticas de cuerpo completo con fondo transparente. No tienen animaciones de movimiento.": "Adult guide, Child guide A, and Child guide B appear as static, full-body illustrations with transparent backgrounds. They do not have movement animations.",
-  "Adult guide, Child guide A y Child guide B aparecen como ilustraciones estáticas de cuerpo completo en PNG transparente. Los recursos están en la carpeta assets/avatars/. No tienen animaciones de movimiento.": "Adult guide, Child guide A, and Child guide B appear as static, full-body illustrations in transparent PNGs. The assets are in the assets/avatars/ folder. They do not have movement animations.",
+  "Esta demo pública usa iconos genéricos y no incluye avatares familiares.": "This public demo uses generic icons and excludes family avatar images.",
+  "Esta demo pública usa iconos genéricos y no incluye avatares familiares.": "This public demo uses generic icons and excludes family avatar images.",
   "Ajustes y privacidad": "Settings & privacy",
   "Este prototipo no tiene cuentas ni servidor.": "This prototype has no accounts or server.",
   "Datos locales": "Local data",
@@ -701,8 +701,8 @@ const JAPANESE = {
   "Ajustes y privacidad": "設定とプライバシー", "Datos locales": "端末内のデータ",
   "Fotos y seguridad infantil": "写真と子どもの安全", "Avatares": "アバター",
   "Avatares aprobados": "承認済みアバター",
-  "Adult guide, Child guide A y Child guide B aparecen como ilustraciones estáticas de cuerpo completo con fondo transparente. No tienen animaciones de movimiento.": "ダニエラ、アンドレ、アダムは、透明な背景の全身イラストで表示されます。動きのアニメーションはありません。",
-  "Adult guide, Child guide A y Child guide B aparecen como ilustraciones estáticas de cuerpo completo en PNG transparente. Los recursos están en la carpeta assets/avatars/. No tienen animaciones de movimiento.": "ダニエラ、アンドレ、アダムは透明な背景の全身PNGイラストで表示されます。画像はassets/avatars/フォルダーにあります。動きのアニメーションはありません。",
+  "Esta demo pública usa iconos genéricos y no incluye avatares familiares.": "この公開デモは汎用アイコンを使用し、家族のアバター画像は含まれません。",
+  "Esta demo pública usa iconos genéricos y no incluye avatares familiares.": "この公開デモは汎用アイコンを使用し、家族のアバター画像は含まれません。",
   "Tema": "テーマ", "Descripción": "説明", "Imagen (opcional)": "画像（任意）",
   "¿Dónde guardar?": "保存先", "Cancelar": "キャンセル", "Guardar cambios": "変更を保存",
   "Guardar publicación": "投稿を保存", "Nuevo descubrimiento familiar": "家族の新しい発見",
@@ -834,8 +834,8 @@ const TURKISH = {
   "Ajustes y privacidad": "Ayarlar ve gizlilik", "Datos locales": "Yerel veriler",
   "Fotos y seguridad infantil": "Fotoğraflar ve çocuk güvenliği", "Avatares": "Avatarlar",
   "Avatares aprobados": "Onaylanan avatarlar",
-  "Adult guide, Child guide A y Child guide B aparecen como ilustraciones estáticas de cuerpo completo con fondo transparente. No tienen animaciones de movimiento.": "Adult guide, Child guide A ve Child guide B şeffaf arka planlı, tam boy statik çizimler olarak görünür. Hareket animasyonları yoktur.",
-  "Adult guide, Child guide A y Child guide B aparecen como ilustraciones estáticas de cuerpo completo en PNG transparente. Los recursos están en la carpeta assets/avatars/. No tienen animaciones de movimiento.": "Adult guide, Child guide A ve Child guide B şeffaf PNG biçiminde, tam boy statik çizimler olarak görünür. Görseller assets/avatars/ klasöründedir. Hareket animasyonları yoktur.",
+  "Esta demo pública usa iconos genéricos y no incluye avatares familiares.": "Bu herkese açık demo genel simgeler kullanır; aile avatarlarını içermez.",
+  "Esta demo pública usa iconos genéricos y no incluye avatares familiares.": "Bu herkese açık demo genel simgeler kullanır; aile avatarlarını içermez.",
   "Tema": "Konu", "Descripción": "Açıklama", "Imagen (opcional)": "Görsel (isteğe bağlı)",
   "¿Dónde guardar?": "Nereye kaydedilsin?", "Cancelar": "İptal", "Guardar cambios": "Değişiklikleri kaydet",
   "Guardar publicación": "Gönderiyi kaydet", "Nuevo descubrimiento familiar": "Yeni aile keşfi",
@@ -1074,7 +1074,7 @@ function renderProfilePicker() {
     },
     ja: {
       title: profile.role === "child" ? "探検家のみなさん、こんにちは！" : "家族のみなさん、こんにちは",
-      subtitle: profile.role === "child" ? "アンドレとアダムが発見の旅を案内します。" : "ダニエラと一緒に家族で発見しましょう。"
+      subtitle: profile.role === "child" ? "子どもの案内役Aと子どもの案内役Bが発見の旅を案内します。" : "大人の案内役と一緒に家族で発見しましょう。"
     },
     tr: {
       title: profile.role === "child" ? "Merhaba, kaşifler!" : "Merhaba, aile!",
@@ -1102,8 +1102,8 @@ function renderProfilePicker() {
     guide.setAttribute("role", "img");
     guide.removeAttribute("aria-hidden");
     guide.setAttribute("aria-label", profile.role === "child"
-      ? (language === "en" ? "Child guide A and Child guide B, learning guides" : language === "ja" ? "学習ガイドのアンドレとアダム" : language === "tr" ? "Öğrenme rehberleri Child guide A ve Child guide B" : "Child guide A y Child guide B, guías de aprendizaje")
-      : (language === "en" ? "Adult guide, learning guide" : language === "ja" ? "学習ガイドのダニエラ" : language === "tr" ? "Öğrenme rehberi Adult guide" : "Adult guide, guía de aprendizaje"));
+      ? (language === "en" ? "Child guide A and Child guide B, learning guides" : language === "ja" ? "学習ガイドの子どもの案内役Aと子どもの案内役B" : language === "tr" ? "Öğrenme rehberleri Child guide A ve Child guide B" : "Child guide A y Child guide B, guías de aprendizaje")
+      : (language === "en" ? "Adult guide, learning guide" : language === "ja" ? "学習ガイドの大人の案内役" : language === "tr" ? "Öğrenme rehberi Adult guide" : "Adult guide, guía de aprendizaje"));
     }
   }
   const ageControl = byId("age-control");
@@ -2384,7 +2384,7 @@ function activeGuideMarkup(kind, compact = false) {
   const copy = {
     es: { children: "Child guide A y Child guide B", adult: "Adult guide", family: "guía familiar", game: "guía del juego" },
     en: { children: "Child guide A and Child guide B", adult: "Adult guide", family: "family guide", game: "game guide" },
-    ja: { children: "アンドレとアダム", adult: "ダニエラ", family: "家族のガイド", game: "ゲームのガイド" },
+    ja: { children: "子どもの案内役Aと子どもの案内役B", adult: "大人の案内役", family: "家族のガイド", game: "ゲームのガイド" },
     tr: { children: "Child guide A ve Child guide B", adult: "Adult guide", family: "aile rehberi", game: "oyun rehberi" }
   }[language] || { children: "Child guide A y Child guide B", adult: "Adult guide", family: "guía familiar", game: "guía del juego" };
   const guideName = profile.role === "child" ? copy.children : copy.adult;
@@ -2497,7 +2497,7 @@ function openProfileDialog() {
     <div class="settings-block"><h3>Perfiles de demostración</h3><p>Elige Adultos o Niños. En Niños, selecciona una franja de edad para adaptar las explicaciones y los retos.</p></div>
     <div class="dialog-list">${PROFILES.map((profile) => `<div class="profile-row">${profileAvatar(profile)}<span><b>${escapeHTML(profile.name)}${current.id === profile.id ? " · activo" : ""}</b><small>${escapeHTML(profile.detail)}</small></span>
       <button type="button" class="quiet-button" data-action="choose-profile" data-id="${profile.id}">${current.id === profile.id ? "Seleccionado" : "Elegir"}</button></div>`).join("")}</div>
-    <div class="settings-block"><h3>Avatares aprobados</h3><p>Adult guide, Child guide A y Child guide B aparecen como ilustraciones estáticas de cuerpo completo con fondo transparente. No tienen animaciones de movimiento.</p></div>
+    <div class="settings-block"><h3>Avatares aprobados</h3><p>Esta demo pública usa iconos genéricos y no incluye avatares familiares.</p></div>
     <div class="dialog-actions"><button class="danger-button" type="button" data-action="reset-demo">Borrar datos de este navegador</button></div>
   </div>`);
 }
@@ -2506,7 +2506,7 @@ function openSettingsDialog() {
   openDialog(`<div class="dialog-inner">${dialogHead("Ajustes y privacidad", "Este prototipo no tiene cuentas ni servidor.")}
     <div class="settings-block"><h3>Datos locales</h3><p>Perfiles, avance, publicaciones y reportes se guardan en localStorage de este navegador. No es un control de privacidad seguro ni una cuenta protegida; quien use el mismo dispositivo podría ver esos datos.</p></div>
     <div class="settings-block"><h3>Fotos y seguridad infantil</h3><p>La vista previa se procesa en el navegador y la imagen se guarda localmente. Evita rostros identificables, nombres completos, escuela y ubicación precisa. La comunidad es una simulación local, no una plataforma moderada.</p></div>
-    <div class="settings-block"><h3>Avatares</h3><p>Adult guide, Child guide A y Child guide B aparecen como ilustraciones estáticas de cuerpo completo en PNG transparente. Los recursos están en la carpeta assets/avatars/. No tienen animaciones de movimiento.</p></div>
+    <div class="settings-block"><h3>Avatares</h3><p>Esta demo pública usa iconos genéricos y no incluye avatares familiares.</p></div>
     <div class="dialog-actions"><button class="quiet-button" type="button" data-action="reset-progress">Reiniciar avance</button><button class="action-button" type="button" data-action="close-dialog">Listo</button></div>
   </div>`);
 }
