@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2e9">
+  <meta name="description" content="Un espacio gratuito para aprender, jugar y descubrir en familia.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Explore Together">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Explore Together — aprendemos en familia</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/icon-180.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="pwa.js" defer></script>
+  <script src="learning-content.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Explore Together, inicio">
+        <span class="brand-mark" aria-hidden="true">✳</span>
+        <span>explore <b>together</b></span>
+      </a>
+      <p class="topbar-note">Pequeños descubrimientos, grandes conversaciones.</p>
+      <div class="top-actions">
+        <label class="sr-only" for="language-select">Idioma / Language / 言語 / Dil</label>
+        <select class="language-select" id="language-select" aria-label="Idioma / Language / 言語 / Dil">
+          <option value="es">Español</option>
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+          <option value="tr">Türkçe</option>
+        </select>
+        <button class="icon-button" id="open-album" type="button" aria-label="Abrir álbum familiar" title="Álbum familiar">▧</button>
+        <button class="icon-button" id="open-profile" type="button" aria-label="Perfiles y ajustes" title="Perfiles y ajustes">☻</button>
+      </div>
+    </header>
+
+    <div class="page-grid">
+      <aside class="sidebar" aria-label="Temas principales">
+        <div class="side-label">EXPLORAR</div>
+        <nav class="topic-nav" id="topic-nav" aria-label="Cinco temas"></nav>
+        <div class="sidebar-note">
+          <span class="sparkle" aria-hidden="true">✦</span>
+          <p>Un mundo de ideas para descubrir <em>juntos</em>.</p>
+          <span class="tiny-illustration" aria-hidden="true">🌱</span>
+        </div>
+        <p class="free-note"><span aria-hidden="true">♡</span> Siempre gratis. Sin bloqueos.</p>
+      </aside>
+
+      <main id="main-content" tabindex="-1">
+        <section class="welcome" aria-label="Perfil familiar">
+          <div class="welcome-copy">
+            <p class="eyebrow"><span aria-hidden="true">✷</span> UN RINCÓN PARA CURIOSOS</p>
+            <h1 id="welcome-title">Hola, familia <span aria-hidden="true">☀</span></h1>
+            <p id="welcome-subtitle">¿Quién viene a explorar hoy?</p>
+          </div>
+          <div class="profile-picker" id="profile-picker" aria-label="Elegir perfil"></div>
+          <div class="welcome-guide" id="welcome-guide" aria-hidden="true"></div>
+          <div class="age-control" id="age-control"></div>
+        </section>
+
+        <div class="mobile-topic-wrap">
+          <nav class="mobile-topic-nav" id="mobile-topic-nav" aria-label="Temas principales"></nav>
+        </div>
+
+        <div id="view-root" aria-live="polite"></div>
+      </main>
+    </div>
+    <footer class="app-footer">
+      <span>✿ Explore Together</span>
+      <span>Un prototipo educativo · Comunidad de demostración</span>
+      <button class="text-button" id="open-settings" type="button">Ajustes y privacidad</button>
+    </footer>
+  </div>
+
+  <dialog class="app-dialog" id="app-dialog" aria-labelledby="dialog-title">
+    <div id="dialog-content"></div>
+  </dialog>
+  <div class="toast-region" id="toast-region" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
