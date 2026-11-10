@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE_NAME = "explore-together-presentation-v1";
+const CACHE_NAME = "explore-together-presentation-v2";
 const APP_FILES = [
   "./",
   "./index.html",
@@ -16,7 +16,10 @@ const APP_FILES = [
 ];
 
 self.addEventListener("install", (event) => {
-  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(APP_FILES)));
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then((cache) => cache.addAll(APP_FILES.map((path) => new Request(path, { cache: "reload" }))))
+  );
   self.skipWaiting();
 });
 
@@ -31,7 +34,7 @@ self.addEventListener("activate", (event) => {
 self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET" || new URL(event.request.url).origin !== self.location.origin) return;
   event.respondWith(
-    fetch(event.request)
+    fetch(event.request, { cache: "reload" })
       .then(async (response) => {
         if (response.ok) {
           const cache = await caches.open(CACHE_NAME);
